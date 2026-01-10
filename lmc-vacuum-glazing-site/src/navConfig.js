@@ -6,9 +6,10 @@ import Contact from "./pages/Contact.jsx";
 import Applications from "./pages/Applications.jsx"
 import { allProducts } from "./productsConfig.js";
 import { allApplications } from "./applicationsConfig.js";
+import { composePrefix } from "yet-another-react-lightbox";
 
 export const navLinks = [
-  { path: "/", label: "Home", component: Home, end: true },
+  { path: "/", label: "Home", component: Home, end: true},
 
   {
     path: "/products",
@@ -24,7 +25,9 @@ export const navLinks = [
     children: allApplications,
   },
 
-  { path: "/projects", label: "Projects", component: Projects },
+  { path: "/#Projects", label: "Projects"},
+
   { path: "/about", label: "About", component: About },
-  { path: "/contact", label: "Contact", component: Contact },
+
+  { path: "/#Contact", label: "Contact"},
 ];

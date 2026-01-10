@@ -6,11 +6,13 @@ import ProductInfo from "./components/ProductInfo.jsx";
 import { allProducts } from "./productsConfig.js";
 import { allApplications } from "./applicationsConfig.js";
 import ApplicationInfo from "./components/ApplicationInfo.jsx";
-
+import ScrollToHash from "./components/ScrollToHash.jsx";
 function Layout({ children }) {
   return (
     <div className="min-h-screen w-full bg-white">
       <Navbar />
+
+      <ScrollToHash />
 
       {/* Full-width main: pages control their own max-width */}
       <main className="w-full">{children}</main>

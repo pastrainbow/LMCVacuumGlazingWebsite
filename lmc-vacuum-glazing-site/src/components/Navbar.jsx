@@ -1,4 +1,4 @@
-import { NavLink, useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+import { NavLink, Link, useLocation, useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { navLinks } from "../navConfig.js";
 
@@ -8,6 +8,30 @@ function navItemClass({ isActive }) {
     "inline-flex items-center gap-1 rounded-xl px-3 py-2 text-xl font-semibold",
     isActive ? "bg-white text-brand-teal" : "text-white hover:bg-brand-gray",
   ].join(" ");
+}
+
+
+function NavItem({ to, end, children }) {
+  const isHash = to.includes("#");
+
+  let isActive = false;
+
+  if (isHash) {
+    return (
+      <Link
+        to={to}
+        className={navItemClass({ isActive })}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <NavLink to={to} end={end} className={navItemClass}>
+      {children}
+    </NavLink>
+  );
 }
 
 export default function Navbar() {
@@ -20,17 +44,23 @@ export default function Navbar() {
 
         <nav className="ml-auto flex flex-wrap items-center gap-2">
           {navLinks.map((l) => {
+            if (l.hidden) {
+              return;
+            }
+
             const hasChildren = !!l.children?.length;
 
             if (!hasChildren) {
               return (
-                <NavLink key={l.path} to={l.path} end={l.end} className={navItemClass}>
+                <NavItem key={l.path} to={l.path} end={l.end}>
                   {l.label}
-                </NavLink>
+                </NavItem>
               );
             }
-
-            return <NavDropdown key={l.path} item={l} />;
+            else {
+              return <NavDropdown key={l.path} item={l} />;
+            }
+            
           })}
         </nav>
       </div>
@@ -45,11 +75,11 @@ function NavDropdown({ item }) {
         <NavigationMenu.Item>
           {/* Trigger */}
           <NavigationMenu.Trigger>
-            
-          <NavLink to={item.path} className={navItemClass}>
-              {item.label}
-              <span aria-hidden>▾</span>
-          </NavLink>
+
+          <NavItem key={item.path} to={item.path}>
+            {item.label}
+            <span aria-hidden>▾</span>
+          </NavItem>
           
           </NavigationMenu.Trigger>
 

@@ -58,7 +58,9 @@ export function Section({gridBackgroundClasses, children }) {
 }
 
 export function NavSection({ id, children }) {
-  <div id={id} className="scroll-mt-24">
-    {children}
-  </div>
+  return (
+    <div id={id} className="scroll-mt-24">
+      {children}
+    </div>
+  )
 }
