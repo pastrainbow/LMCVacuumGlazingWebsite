@@ -11,7 +11,7 @@ function navItemClass(isActive) {
   ].join(" ");
 }
 
-function ScrollTopNavLink({ to, end, children, overwriteClassName}) {
+function ScrollTopNavLink({ to, end, children, overwriteClassName }) {
   const navigate = useNavigate();
   const isHash = to.includes("#");
   const { pathname } = useLocation();
@@ -25,10 +25,10 @@ function ScrollTopNavLink({ to, end, children, overwriteClassName}) {
     }
   };
   return (
-    <NavLink to={to} end={end} onClick={handleClick} 
+    <NavLink to={to} end={end} onClick={handleClick}
       className={
-        overwriteClassName ? 
-          overwriteClassName : 
+        overwriteClassName ?
+          overwriteClassName :
           (({ isActive }) => (
             navItemClass(isActive && !isHash)
           ))
