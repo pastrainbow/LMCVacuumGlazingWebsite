@@ -8,18 +8,16 @@ import { allApplications } from "./applicationsConfig.js";
 import ApplicationInfo from "./components/ApplicationInfo.jsx";
 import ScrollToHash from "./components/ScrollToHash.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import GridBackground from "./components/GridBackground.jsx";
 function Layout({ children }) {
   return (
-    <div className="min-h-screen w-full bg-brand-teal">
-      <GridBackground className={"bg-brand-teal"} />
+    <div className="min-h-screen w-full flex flex-col">
 
       <Navbar />
 
       <ScrollToHash />
 
       {/* Full-width main: pages control their own max-width */}
-      <main className="w-full">{children}</main>
+      <main className="w-full flex-grow">{children}</main>
 
       <Footer />
     </div>

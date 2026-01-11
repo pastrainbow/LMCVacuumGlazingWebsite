@@ -2,10 +2,10 @@ import { contactMethods, addresses } from "../contactInfo";
 import { NavSection } from "./Utils";
 
 
-export default function Footer({ fillScreenHeight }) {
+export default function Footer() {
   return (
     <NavSection id="Contact">
-      <footer className={"relative w-full overflow-hidden " + (fillScreenHeight && "min-h-screen flex items-center")}> 
+      <footer className={"relative w-full overflow-hidden"}> 
         {/* Teal grid background */}
         <div
           className="absolute inset-0 bg-brand-teal"
