@@ -6,7 +6,7 @@ import App from "./App.jsx";
 // per-route SEO map (extend as needed)
 const SEO = {
   "/": {
-    title: "LMC Vacuum Glazing | Energy-Efficient Vacuum Glass",
+    title: "LMC Vacuum Glazing | Vacuum Glazing Merchant",
     description:
       "High-performance vacuum glazing for architecture, heritage buildings, agriculture, and sustainable construction.",
   },
@@ -15,6 +15,12 @@ const SEO = {
     description:
       "Hybrid vacuum glass with excellent insulation, slim profile, and high light transmission.",
   },
+  "/products/VacuumGlass": {
+    title: "Vacuum Glass | LMC Vacuum Glazing",
+    description:
+      "Vacuum glass with excellent insulation, slim profile, and high light transmission.",
+  },
+
 };
 
 export async function prerender(data) {

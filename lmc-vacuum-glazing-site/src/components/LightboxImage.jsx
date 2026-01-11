@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox"
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+
 import "yet-another-react-lightbox/styles.css";
 
 export default function LightboxImage({image, alt}) {
@@ -24,6 +26,14 @@ export default function LightboxImage({image, alt}) {
         open={open}
         close={() => setOpen(false)}
         slides={[{ src: image, alt: alt }]}
+        plugins={[Zoom]}
+        zoom={{
+          maxZoomPixelRatio: 3,
+          zoomInMultiplier: 2,
+          doubleTapDelay: 100,
+          doubleClickDelay: 100,
+          scrollToZoom: true,
+        }}
       />
     </>
   );

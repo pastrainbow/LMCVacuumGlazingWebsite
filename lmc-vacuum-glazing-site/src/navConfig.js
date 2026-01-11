@@ -1,6 +1,7 @@
 import Home from "./pages/Home.jsx";
 import Products from "./pages/Products.jsx";
 import Applications from "./pages/Applications.jsx"
+import Contact from "./pages/Contact.jsx";
 import { allProducts } from "./productsConfig.js";
 import { allApplications } from "./applicationsConfig.js";
 
@@ -23,5 +24,9 @@ export const navLinks = [
 
   { path: "/#Projects", label: "Projects"},
 
-  { path: "/#Contact", label: "Contact"},
+  { 
+    path: "/contact", 
+    label: "Contact", 
+    component: Contact
+  },
 ];

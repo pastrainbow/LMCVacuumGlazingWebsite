@@ -7,6 +7,7 @@ import { allProducts } from "./productsConfig.js";
 import { allApplications } from "./applicationsConfig.js";
 import ApplicationInfo from "./components/ApplicationInfo.jsx";
 import ScrollToHash from "./components/ScrollToHash.jsx";
+import NotFound from "./pages/NotFound.jsx";
 function Layout({ children }) {
   return (
     <div className="min-h-screen w-full bg-white">
@@ -76,7 +77,7 @@ export default function App() {
       {renderRoutesFromNav(navLinks)}
       {dynamicRenderRoutesFromChildren(ProductInfo, allProducts)}
       {dynamicRenderRoutesFromChildren(ApplicationInfo, allApplications)}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<Layout><NotFound /></Layout>} />
     </Routes>
   );
 }

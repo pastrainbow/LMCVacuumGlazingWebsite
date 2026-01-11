@@ -12,5 +12,5 @@ export default defineConfig({
       additionalPrerenderRoutes: ["/404"],
     })
   ],
-  base: "/LMCVacuumGlazingWebsite/",
+  base: "/",
 });

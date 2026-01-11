@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- primay icon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <!-- Primary icon -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
 
     <!-- PNG favicons -->
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
@@ -14,11 +14,20 @@
     <!-- Apple -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Mobile theme color, controlled by main.jsx. White is default. -->
+    <!-- Google / Android Web App -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192.png" />
+
+    <!-- App name (used by Chrome / Android) -->
+    <meta name="application-name" content="LMC Vacuum Glazing" />
+    <meta name="apple-mobile-web-app-title" content="LMC Vacuum Glazing" />
+
+    <!-- Mobile theme color -->
     <meta name="theme-color" content="#ffffff" />
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LMC Vacuum Glazing | Vacuum Glazing Merchant </title>
+
+    <title>LMC Vacuum Glazing | Vacuum Glazing Merchant</title>
 
     <meta
       name="description"
@@ -26,15 +35,15 @@
                solutions for architecture, heritage buildings, agriculture, 
                and energy-efficient construction."
     />
-
   </head>
+
   <body>
     <div id="root"></div>
+
     <!-- normal client entry -->
     <script type="module" src="/src/main.jsx"></script>
 
     <!-- prerender entry (only used at build time by the plugin) -->
     <script type="module" prerender src="/src/prerender.jsx"></script>
-
   </body>
 </html>
