@@ -7,4 +7,6 @@ export const prerenderPaths = [
   "/applications/freezer", 
 
   "/contact",
+
+  "/projects"
 ]
