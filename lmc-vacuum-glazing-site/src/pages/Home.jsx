@@ -6,6 +6,7 @@ import VacuumPropertiesImage from "../assets/VacuumGlassProperties.jpeg"
 
 import ProductRangeSection from "../components/ProductRangeSection";
 import ApplicationsSection from "../components/ApplicationsSection";
+import ProjectSection from "../components/ProjectSection";
 
 import GridBackground from "../components/GridBackground";
 
@@ -171,10 +172,8 @@ export default function Home() {
           <Title className="text-white">
             Example Projects
           </Title>
-
-          <div className="my-6">
-            <ImageCarousel images={projectImages}/>      
-          </div>
+          
+          <ProjectSection />
           
         </div>
       </Section>

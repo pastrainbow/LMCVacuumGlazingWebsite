@@ -2,6 +2,7 @@ import Home from "./pages/Home.jsx";
 import Products from "./pages/Products.jsx";
 import Applications from "./pages/Applications.jsx"
 import Contact from "./pages/Contact.jsx";
+import Projects from "./pages/Projects.jsx";
 import { allProducts } from "./productsConfig.js";
 import { allApplications } from "./applicationsConfig.js";
 
@@ -16,14 +17,17 @@ export const navLinks = [
   },
 
   {
-    path: "/application", 
+    path: "/applications", 
     label: "Applications", 
     component: Applications,
     children: allApplications,
   },
 
-  { path: "/#Projects", label: "Projects"},
-
+  { 
+    path: "/projects", 
+    label: "Projects", 
+    component: Projects
+  },
   { 
     path: "/contact", 
     label: "Contact", 

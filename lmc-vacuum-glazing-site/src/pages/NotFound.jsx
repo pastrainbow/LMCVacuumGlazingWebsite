@@ -1,3 +1,8 @@
+import { Title } from "../components/Utils"
 export default function NotFound() {
-  return (<></>)
+  return (
+  <Title>
+    404 Not Found
+  </Title>
+  )
 }

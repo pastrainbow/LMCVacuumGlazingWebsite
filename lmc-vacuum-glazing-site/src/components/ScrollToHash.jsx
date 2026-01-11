@@ -1,55 +1,33 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function ScrollToHash() {
   const { hash, pathname } = useLocation();
-  const navigate = useNavigate();
 
-  const targetIdRef = useRef(null);
-
-  // Prevent browser scroll restoration / native hash jumping
   useEffect(() => {
-    const prev = window.history.scrollRestoration;
-    window.history.scrollRestoration = "manual";
-    return () => {
-      window.history.scrollRestoration = prev;
-    };
-  }, []);
-
-  // Scroll to hash when element exists, then clear hash immediately
-  useLayoutEffect(() => {
     if (!hash) return;
+    if (typeof window === "undefined") return;
 
     const id = decodeURIComponent(hash.slice(1));
-    targetIdRef.current = id;
 
-    let rafId = 0;
-    let attempts = 0;
-    const maxAttempts = 180; // ~3s
+    let raf = 0;
+    let tries = 0;
+    const maxTries = 180; // ~3s at 60fps
 
-    const tryScroll = () => {
-      // hash changed while retrying
-      if (targetIdRef.current !== id) return;
-
+    const attemptScroll = () => {
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
-
-        // Clear hash immediately AFTER successful scroll
-        navigate({ hash: "" }, { replace: true });
-
         return;
       }
 
-      attempts += 1;
-      if (attempts < maxAttempts) {
-        rafId = requestAnimationFrame(tryScroll);
-      }
+      tries += 1;
+      if (tries < maxTries) raf = requestAnimationFrame(attemptScroll);
     };
 
-    rafId = requestAnimationFrame(tryScroll);
-    return () => cancelAnimationFrame(rafId);
-  }, [hash, pathname, navigate]);
+    raf = requestAnimationFrame(attemptScroll);
+    return () => cancelAnimationFrame(raf);
+  }, [hash, pathname]);
 
   return null;
 }
