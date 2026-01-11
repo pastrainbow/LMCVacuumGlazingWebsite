@@ -30,6 +30,11 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- normal client entry -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- prerender entry (only used at build time by the plugin) -->
+    <script type="module" prerender src="/src/prerender.jsx"></script>
+
   </body>
 </html>
