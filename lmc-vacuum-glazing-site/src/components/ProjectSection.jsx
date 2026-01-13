@@ -1,11 +1,12 @@
 import ImageCarousel from "../components/ImageCarousel"
-
+import LightboxImage from "./LightboxImage"
 import GrantDeneau from "../assets/projects/GrantDeneau.jpg"
 import Henrick from "../assets/projects/Henrick.jpg"
 import Jinxiu from "../assets/projects/Jinxiu.jpg"
 import MaWan from "../assets/projects/MaWan.jpg"
 import PurpleHorse from "../assets/projects/PurpleHorse.jpg"
-import Regent from "../assets/projects/Regent.jpg"
+import Regent from "../assets/projects/Regent.jpeg"
+import { Section } from "./Utils"
 
 const projectImages = [
   {
@@ -39,8 +40,15 @@ const projectImages = [
 
 export default function ProjectSection() {
   return (
-    <div className="my-6">
-      <ImageCarousel images={projectImages}/>      
-    </div>
+    <>
+      {
+        projectImages.map((image, i) => (
+          // Margin to separate out the images
+          <div key={i} className="mb-13">
+            <LightboxImage image={image.content} alt={image.alt} labelled/>
+          </div>
+        ))
+      }
+    </>
   )
 }

@@ -1,5 +1,12 @@
 import { NavLink } from "react-router-dom";
 import GridBackground from "./GridBackground";
+import LogoIcon from "../assets/favicon.svg"
+
+export function Logo() {
+  return (
+    <img src={LogoIcon} alt="LMC Vacuum Glazing Logo" className="h-6 w-auto sm:h-9"/>
+  )
+}
 
 export function Title({ children, className = "" }) {
   return (

@@ -16,10 +16,10 @@ function Layout({ children }) {
 
       <ScrollToHash />
 
-      {/* Full-width main: pages control their own max-width */}
       <main className="w-full flex-grow">{children}</main>
-
-      <Footer />
+  
+      <Footer className="flew-1"/>
+      
     </div>
   );
 }

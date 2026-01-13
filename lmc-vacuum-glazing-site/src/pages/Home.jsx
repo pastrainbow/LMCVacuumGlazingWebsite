@@ -4,10 +4,6 @@ import VacuumInfoImage from "../assets/VacuumGlazingInfo.png"
 import VacuumPerformanceImage from "../assets/VacuumGlassPerformance.jpg"
 import VacuumPropertiesImage from "../assets/VacuumGlassProperties.jpeg"
 
-import ProductRangeSection from "../components/ProductRangeSection";
-import ApplicationsSection from "../components/ApplicationsSection";
-import ProjectSection from "../components/ProjectSection";
-
 import GridBackground from "../components/GridBackground";
 
 import {Title, Description, Button, Image, Section, NavSection} from "../components/Utils"
@@ -102,42 +98,11 @@ export default function Home() {
     {/* Vacuum Glass Properties */}
     <Section>
       <Title>
-        Product Average
+        Technical Specification
       </Title>
 
       <Image src={VacuumPropertiesImage} alt="Vacuum glass properties grid diagram"/>
     </Section>
-
-    <NavSection id="Products">
-      <ProductRangeSection />
-    </NavSection>
-    
-    <NavSection id="Applications">
-      <Section>
-        <div className="mx-auto max-w-6xl px-4">
-          <Title>
-            Applications
-          </Title>
-        </div>
-
-        <ApplicationsSection/>
-      </Section>
-    </NavSection>
-
-    {/* Projects */}
-    <NavSection id="Projects">
-      <Section gridBackgroundClasses="bg-brand-gray">
-        {/* Content */}
-        <div className="relative mx-auto max-w-6xl px-4">
-          <Title className="text-white">
-            Example Projects
-          </Title>
-          
-          <ProjectSection />
-          
-        </div>
-      </Section>
-    </NavSection>
 
     </div>
   );

@@ -1,6 +1,7 @@
-import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { navLinks } from "../navConfig.js";
+import { Logo } from "./Utils.jsx";
 import { useMemo, useState } from "react";
 
 function navItemClass(isActive) {
@@ -52,8 +53,9 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b bg-brand-teal">
       <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-10">
         {/* Brand */}
-        <div className="text-lg font-extrabold tracking-tight text-white sm:text-2xl">
-          LMC Vacuum Glazing
+        <div className="flex items-center gap-2 text-lg font-extrabold tracking-tight text-white sm:text-2xl">
+          <Logo />
+          <span>LMC Vacuum Glazing</span>
         </div>
 
         {/* Desktop nav */}

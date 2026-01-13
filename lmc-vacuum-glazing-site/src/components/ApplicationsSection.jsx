@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { allApplications } from "../applicationsConfig";
-
+import { Section } from "./Utils";
 function ApplicationCard({ label, path, thumbnailImage, active }) {
   return (
     <NavLink
@@ -91,12 +91,10 @@ function ApplicationCard({ label, path, thumbnailImage, active }) {
 
 export default function ApplicationsSection({ activeChild }) {
   return (
-    <div className="mt-12 w-full">
-      <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-5">
-        {allApplications.map((child) => (
-          <ApplicationCard key={child.path} active={child === activeChild} {...child} />
-        ))}
-      </div>
+    <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-5">
+      {allApplications.map((child) => (
+        <ApplicationCard key={child.path} active={child === activeChild} {...child} />
+      ))}
     </div>
   );
 }

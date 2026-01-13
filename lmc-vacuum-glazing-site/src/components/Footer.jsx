@@ -80,7 +80,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="mt-16 text-xs text-white/70">
-            © {new Date().getFullYear()} LMC Products Ltd. <br></br>
+            © {new Date().getFullYear()} LMC Vacuum Glazing <br></br>
             Website made by Adam Li
           </div>
         </div>

@@ -4,9 +4,8 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 import "yet-another-react-lightbox/styles.css";
 
-export default function LightboxImage({image, alt}) {
+function Box({ image, alt }) {
   const [open, setOpen] = useState(false);
-
   return (
     <>
       <button
@@ -36,5 +35,26 @@ export default function LightboxImage({image, alt}) {
         }}
       />
     </>
+  )
+}
+
+export default function LightboxImage({image, alt, labelled}) {
+
+  return labelled ?
+  (
+    <figure className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
+      <div className="bg-gray-50">
+        <LightboxImage image={image} alt={alt} />
+      </div>
+
+      <figcaption className="border-t border-gray-100 px-4 py-3">
+        <p className="text-sm font-semibold text-gray-900">
+          {alt}
+        </p>
+      </figcaption>
+    </figure>
+  ) :
+  (
+    <Box image={image} alt={alt}/>
   );
 }
