@@ -139,14 +139,39 @@ function MobileDisclosure({ item, onNavigate }) {
 
   return (
     <div className="rounded-xl">
-      <button
-        className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-base font-semibold text-white hover:bg-white/10"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-      >
-        <span>{item.label}</span>
-        <span aria-hidden className="text-sm">{open ? "▴" : "▾"}</span>
-      </button>
+      <div className="flex w-full items-center justify-between rounded-xl text-base font-semibold text-white hover:bg-white/10">
+        {/* Label navigates */}
+        <ScrollTopNavLink
+          key={item.path}
+          to={item.path}
+          end={item.end}
+          onClick={onNavigate}
+          overwriteClassName={({ isActive }) =>
+            [
+              "block flex-1 px-3 py-2 rounded-xl text-base font-semibold transition",
+              (isActive) ? "bg-white text-brand-teal" :
+                "text-white hover:bg-white/10",
+            ].join(" ")
+          }
+        >
+          {item.label}
+        </ScrollTopNavLink>
+
+        {/* Caret toggles */}
+        <button
+          type="button"
+          className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-white/10"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setOpen((v) => !v);
+          }}
+          aria-label={open ? `Collapse ${item.label}` : `Expand ${item.label}`}
+          aria-expanded={open}
+        >
+          <span aria-hidden className="text-sm">{open ? "▴" : "▾"}</span>
+        </button>
+      </div>
 
       {open && (
         <div className="mt-1 space-y-1 pl-2">
@@ -158,7 +183,9 @@ function MobileDisclosure({ item, onNavigate }) {
               overwriteClassName={({ isActive }) =>
                 [
                   "block rounded-xl px-3 py-2 text-sm font-semibold transition",
-                  isActive ? "bg-white text-brand-teal" : "text-white/90 hover:bg-white/10 hover:text-white",
+                  isActive
+                    ? "bg-white text-brand-teal"
+                    : "text-white/90 hover:bg-white/10 hover:text-white",
                 ].join(" ")
               }
             >
@@ -170,6 +197,7 @@ function MobileDisclosure({ item, onNavigate }) {
     </div>
   );
 }
+
 
 function NavDropdown({ item }) {
   return (
